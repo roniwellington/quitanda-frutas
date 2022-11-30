@@ -13,3 +13,9 @@ p.truncar-3l {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@media screen and (max-width: 469px) {
+    .mt-xs-3 {
+        margin-top: 1rem;
+    }
+}
