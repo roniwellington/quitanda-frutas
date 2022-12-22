@@ -1,0 +1,119 @@
+.app-box {
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-title {
+    color: var(--white-1);
+    margin-block-end: 5px;
+}
+
+.header-time {
+    color: var(--white-1);
+    font-size: var(--fs-5);
+}
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.menu-btn {
+    color: var(--white-1);
+    font-size: 16px;
+    padding: 6px;
+    border-radius: var(--radius-5);
+}
+
+.menu-btn:is(:hover, :focus) {
+    background-color: var(--white_40);
+}
+
+.dropdown-container {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    width: 200px;
+    overflow: hidden;
+    z-index: 3;
+    visibility: hidden;
+}
+
+.dropdown-container.active {
+    visibility: visible;
+}
+
+.dropdown-list {
+    background-color: var(--white-1);
+    border-radius: var(--radius-5);
+    transform: translateY(-50%);
+    box-shadow: var(--shadow-2);
+    transition: none;
+}
+
+.dropdown-container.active .dropdown-list {
+    transform: translateY(0);
+    transition: 0.5s var(--cubic-out);
+    transition-delay: 0.25s;
+}
+
+.dropdown-item {
+    padding: 15px;
+}
+
+.item-title {
+    color: var(--black);
+    font-size: var(--fs-4);
+    margin-block-end: 15px;
+}
+
+.theme-btn-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.theme-btn {
+    background-image: linear-gradient(to bottom,
+            hsl(var(--hue, 227), 40%, 50%),
+            hsl(var(--hue, 227), 40%, 60%));
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.theme-btn:is(:hover, :focus){ outline-color: var(--cultured-1);}
+
+.theme-btn.active{ outline-color: var(--slimy-green);}
+
+.theme-btn:active { transform: scale(0.98);}
+
+.dropdown-link{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+}
+
+.dropdown-link:is(:hover, :focus){
+    background-color: var(--black_05);
+}
+
+.dropdown-link:active { --black_05: hsla(0,0%, 0%, 0.1)}
+
+.dropdown-link ion-icon { 
+    color: var(--dim-gray);
+    font-size: 20px;
+}
+
+.dropdown-link .span {
+    color: var(--eerie-black);
+    font-size: var(--fs-4);
+}

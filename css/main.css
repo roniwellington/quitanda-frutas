@@ -1,0 +1,214 @@
+/*MAIN*/
+
+.title-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: max-content;
+    user-select: none;
+    z-index: -1;
+}
+
+.title-wrapper.hide{ opacity: 0;}
+
+.title-wrapper .img {
+    width: 90px;
+    margin-inline: auto;
+    margin-block-end: 10px;
+}
+
+.title-wrapper .h2 {
+    color: var(--white-1);
+    text-align: center;
+}
+
+.task-list {
+    margin-block: 20px;
+    max-height: calc(100vh - 200px);
+    padding-inline-end: 4px;
+    margin-inline-end: -4px;
+    overflow-y: auto;
+}
+
+.task-list::-webkit-scrollbar { width: 2px;}
+
+.task-list::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.task-list:is(:hover, :focus-within)::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%,0%, 0.5);
+}
+
+.task-item:not(:last-child){margin-block-end: 2px;}
+
+.task-item {
+    background-color: var(--cultured-1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: var(--radius-4);
+    user-select: none;
+}
+
+.task-item:is(:hover, :focus-within){
+    background-color: var(--cultured-2);
+}
+
+.task-item:active { transform: scale(0.99);}
+
+.task-item .check-icon {
+    --icon-color: var(--granite-gray);
+    --icon-opacity: 0;
+
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--granite-gray);
+    border-radius: 50%;
+}
+
+.task-item .item-icon:is(:hover, :focus).check-icon{
+    --icon-opacity: 1;
+}
+
+.task-item .item-icon:active .check-icon {
+    --icon-color: var(--cultured-1);
+    background-color: var(--granite-gray);
+}
+
+.task-item .check-icon::before,
+.task-item .check-icon::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--icon-color);
+    opacity: var(--icon-opacity);
+}
+
+.task-item .check-icon::before {
+    width: 6px;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 2px;
+}
+
+.task-item .check-icon::after {
+    transform: rotate(-45deg);
+    top: 7px;
+    left: 5px;
+}
+
+.task-item.complete .check-icon {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    --icon-color: var(--cultured-1);
+    --icon-opacity: 1;
+    animation: scale-up 0.2s ease forwards;
+}
+
+@keyframes scale-up {
+    0% { transform: scale(0.5);}
+    100% { transform: scale(1);}
+}
+
+.task-item .item-text {
+    font-size: var(--fs-4);
+    padding-block-start: 2px;
+}
+
+.task-item.complete .item-text {
+    color: var(--granite-gray);
+    text-decoration: line-through;
+}
+
+.task-item .item-action-btn {
+    margin-inline-start: auto;
+    color: var(--dim-gray);
+    opacity: 0;
+}
+
+.task-item:is(:hover, :focus-within) .item-action-btn{
+    opacity: 1;
+}
+
+.task-item .item-action-btn:is(:hover, :focus){
+    color: var(--fuzzy-wuzzy);
+}
+
+.task-item .item-action-btn:is(:hover, :focus) ion-icon {
+    --ionicon-stroke-width: 50px;
+}
+
+.input-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.input-field {
+    background-color: var(--white_70);
+    color: var(--eerie-black);
+    font-size: var(--fs-4);
+    padding: 14px;
+    padding-inline-start: 50px;
+    box-shadow: var(--shadow-1);
+    border-radius: var(--radius-4);
+}
+
+.input-field::placeholder {
+    color: var(--dim-gray);
+    opacity: 0;
+}
+
+.input-field:focus::placeholder {
+    opacity: 1;
+}
+
+.input-field:is(:hover, :focus){
+    background-color: var(--white_80);
+    outline: none;
+}
+
+.input-text,
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-text {
+    left: 50px;
+    font-size: var(--fs-4);
+    pointer-events: none;
+}
+.input-icon  {
+    left: 14px;
+    font-size: 26px;
+}
+
+.input-field:is(:not(:placeholder-shown), :focus) ~ .input-text{
+    opacity: 0;
+}
+
+.input-icon .circle-icon {
+    color: var(--davys-gray);
+    --ionicon-stroke-width: 40px;
+}
+
+.input-field:focus ~ .input-icon .add-icon,
+.input-field ~ .input-icon .circle-icon {
+    display: none;
+}
+
+.input-field ~ .input-icon .add-icon,
+.input-field:focus ~ .input-icon .circle-icon {
+    display: block;
+}
