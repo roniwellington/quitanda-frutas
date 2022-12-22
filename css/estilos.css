@@ -154,7 +154,7 @@ body.loaded {
 
 .container,
 .main,
-.app-box{ height: 100%;}
+.app-box{ height: 95%;}
 
 .h1,
 .h2 { font-weight: var(--fw-500);}
