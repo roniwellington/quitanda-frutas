@@ -162,3 +162,65 @@ body.loaded {
 .h1 { font-size: var(--fs-1);}
 
 .h2 { font-size: var(--fs-3);}
+
+/********************************
+    #MEDIA QUERIES
+*********************************/
+
+/*RESPONSIVE FOR LARGER THAN 550PX SCREEN*/
+
+@media (min-width: 550px){
+    /*custom property*/
+
+    :root {
+        /*typography*/
+        --fs-1: 3rem;
+        --fs-3: 2.2rem;
+        --fs-5: 1.4rem;
+    }
+
+    /*header*/
+
+    .dropdown-container { width: 280px;}
+
+    .theme-btn-group {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /*main*/
+
+    .title-wrapper .img { width: 100px;}
+}
+
+/*RESPONSIVE FOR LARGER THAN 768PX SCREEN*/
+
+@media (min-width: 768px){
+
+    /*reuse style*/
+
+    .container {
+        max-width: 650px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    /*header*/
+
+    .app-box {
+        background-color: var(--white_10);
+        padding: 25px;
+        border-radius: var(--radius-10);
+    }
+
+    /*main*/
+
+    .task-list {
+        max-height: calc(100vh - 250px);
+    }
+
+    .input-wrapper {
+        bottom: 25px;
+        left: 25px;
+        right: 25px;
+    }
+}

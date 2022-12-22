@@ -1,0 +1,77 @@
+.app-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black_50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.app-info.active {
+    opacity: 1;
+    visibility: visible; 
+}
+
+.modal {
+    background-color: var(--cultured-2);
+    padding: 20px;
+    padding-block-start: 30px;
+    border-radius: var(--radius-5);
+    max-width: 280px;
+    width: 100%;
+    transform: scale(1.1);
+    transform-origin: bottom;
+    transition: 0.15s var(--cubic-out);
+}
+
+.app-info.active .modal {
+    transform: scale(1);
+    transition-duration: 0.4s;
+}
+
+.modal-title {
+    font-size: var(--fs-2);
+    font-weight: var(--fw-500);
+}
+
+.modal-list { margin-block: 10px 30px;}
+
+.modal-item { font-size: var(--fs-4);}
+
+.modal-item:not(:last-child) {
+    margin-block-end: 5px;
+}
+
+.modal-item > * {
+    display: inline-block;
+}
+
+.modal-item .span { color: var(--dim-gray);}
+
+.modal-item a.span { color: var(--theme-color);}
+
+.modal-btn {
+    width: 100%;
+    min-height: 30px;
+    font-size: var(--fs-4);
+    background-color: var(--white-1);
+    border-radius: var(--radius-4);
+    outline: 1px solid var(--cultured-1);
+    box-shadow: 0 1.5px 1px var(--black_25);
+}
+
+.modal-btn:is(:hover, :focus){
+    background-color: var(--white-2);
+}
+
+.modal-btn:active {
+    color: var(--dim-gray);
+    box-shadow: none;
+}
